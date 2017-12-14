@@ -1,4 +1,4 @@
-﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BikeSharing.Clients.Core.Pages.CustomRidePage" 
              xmlns:controls="clr-namespace:BikeSharing.Clients.Core.Controls;assembly=BikeSharing.Clients.Core"   
@@ -47,10 +47,11 @@
     </ContentPage.Effects>
     <AbsoluteLayout>
         <!-- MAP -->
-        <controls:CustomMap   
+        <controls:CustomMap  
             x:Name="Map"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0, 0, 1.0, 1.0" 
+            AbsoluteLayout.LayoutBounds="0, 0, 1.0, 1.0"  
+            IsVisible="{Binding ShowMap}"
             CustomPins="{Binding CustomPins}"
             SelectedPin="{Binding SelectedPin, Mode=TwoWay}"
             From="{Binding From, Mode=TwoWay}"
@@ -99,6 +100,7 @@
                         TextColor="#3063F5"
                         Style="{StaticResource NewRideHeaderStyle}"/>
                     <controls:BindablePicker   
+						x:Name="FromPicker" 
                         ItemsSource="{Binding CustomPins}"      
                         SelectedItem="{Binding From, Mode=TwoWay}"
                         Style="{StaticResource FormBindablePickerStyle}"/>
@@ -107,6 +109,7 @@
                         TextColor="#FF5E4D"
                         Style="{StaticResource NewRideHeaderStyle}"/>
                     <controls:BindablePicker  
+						x:Name="ToPicker"
                         ItemsSource="{Binding CustomPins}"    
                         SelectedItem="{Binding To, Mode=TwoWay}"
                         Style="{StaticResource FormBindablePickerStyle}"/>
